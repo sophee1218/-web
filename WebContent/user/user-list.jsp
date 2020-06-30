@@ -15,10 +15,11 @@ Statement stmt = con.createStatement();
 String sql = "SELECT*FROM user";
 ResultSet rs = stmt.executeQuery(sql);
 %>
-<a href=""><button>회원정보입력</button></a>
+<a href="/web/user/user-insert.jsp"><button>회원정보입력</button></a>
 <table border="1">
 	<tr>
-		<th>num</th>
+		<th><input type="checkbox" name="all"></th>
+		<th>NUM</th>
 		<th>NAME</th>
 		<th>id</th>
 	</tr>
@@ -26,6 +27,7 @@ ResultSet rs = stmt.executeQuery(sql);
 while(rs.next()){
 %>
 	<tr>
+		<td><input type="checkbox" name="ch" value"<%=rs.getInt("num")%>"></td>
 		<td><%=rs.getInt("num")%></td>
 		<td><%=rs.getString("NAME")%></td>
 		<td><%=rs.getString("id")%></td>
